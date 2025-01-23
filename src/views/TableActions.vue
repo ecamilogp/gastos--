@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onBeforeMount } from 'vue';
 import { useGastosStore } from '../store/useGastosStore';
-import { Gastos } from '../interfaces/gastos';
+import type { Gastos } from '../interfaces/gastos';
 import Form from './Form.vue';
 
 const modal = ref(false);

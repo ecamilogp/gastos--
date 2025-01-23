@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { ref, watchEffect } from "vue";
-import { Gastos } from "../interfaces/gastos";
+import { ref, watchEffect } from 'vue';
+import type { Gastos } from '../interfaces/gastos';
 
 const props = defineProps<{
   updateGasto?: Gastos;
 }>();
 
-const emit = defineEmits(["confirm", "cancel"]);
+const emit = defineEmits(['confirm', 'cancel']);
 
 const gastos = ref<Gastos>({
-  name: "",
+  name: '',
   money: 0,
   id: 0,
   ...props.updateGasto,
@@ -19,11 +19,11 @@ const dialog = ref(true);
 
 const closeModal = () => {
   dialog.value = false;
-  emit("cancel");
+  emit('cancel');
 };
 
 const saveGasto = () => {
-  emit("confirm", { ...gastos.value });
+  emit('confirm', { ...gastos.value });
   dialog.value = false;
 };
 
@@ -50,7 +50,7 @@ watchEffect(() => {
       </button>
 
       <h2 class="text-2xl font-semibold text-center mb-6">
-        {{ props.updateGasto ? "Editar Gasto" : "Agregar Gasto" }}
+        {{ props.updateGasto ? 'Editar Gasto' : 'Agregar Gasto' }}
       </h2>
 
       <form class="space-y-6">
@@ -94,7 +94,7 @@ watchEffect(() => {
           @click="saveGasto"
           class="py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          {{ props.updateGasto ? "Guardar Cambios" : "Agregar" }}
+          {{ props.updateGasto ? 'Guardar Cambios' : 'Agregar' }}
         </button>
       </div>
     </div>
