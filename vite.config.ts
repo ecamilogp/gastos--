@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: 'gastos--',
-  plugins: [tailwindcss(), vue()],
+  build: {
+    outDir: 'dist',
+  },
+  plugins: [vue(), tailwindcss()],
 });
