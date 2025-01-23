@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, computed, onBeforeMount } from "vue";
-import { useGastosStore } from "../store/useGastosStore";
-import { Gastos } from "../interfaces/gastos";
-import Form from "./Form.vue";
+import { ref, computed, onBeforeMount } from 'vue';
+import { useGastosStore } from '../store/useGastosStore';
+import { Gastos } from '../interfaces/gastos';
+import Form from './Form.vue';
 
 const modal = ref(false);
 const gastoStore = useGastosStore();
 const updateGasto = ref<Gastos | undefined>(undefined);
-const income = ref<number>(0); // Income field
+const income = ref<number>(0);
 
 const openModal = (gasto?: Gastos) => {
   modal.value = true;
@@ -28,7 +28,6 @@ const saveGasto = (gasto: Gastos) => {
   closeModal();
 };
 
-// Computed properties
 const totalGastos = computed(() => {
   return gastoStore.gastos.reduce((total, gasto) => total + gasto.money, 0);
 });
@@ -57,7 +56,6 @@ onBeforeMount(() => {
       </button>
     </div>
 
-    <!-- Total Income Section -->
     <div class="flex justify-center mb-6">
       <input
         v-model.number="income"
@@ -67,7 +65,6 @@ onBeforeMount(() => {
       />
     </div>
 
-    <!-- Remaining Salary Section -->
     <div
       v-if="gastoStore.gastos.length"
       class="text-right mb-4 text-xl font-semibold"
@@ -133,7 +130,6 @@ onBeforeMount(() => {
       No hay gastos registrados.
     </div>
   </div>
-  <router-link to="/delete-cuenta">ELIMINAR CUENTA</router-link>
 
   <Form
     v-if="modal"

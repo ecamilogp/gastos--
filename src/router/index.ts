@@ -1,26 +1,21 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../components/Home.vue";
+import { createRouter, createWebHashHistory } from 'vue-router';
+import Home from '../views/Home.vue';
 
-const routes: RouteRecordRaw[] = [
+const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home,
   },
   {
-    path: "/table-actions",
-    name: "table",
-    component: () => import("../components/TableActions.vue"),
-  },
-  {
-    path: "/delete-cuenta",
-    name: "cuenta",
-    component: () => import("../components/Cuenta.vue"),
+    path: '/table-actions',
+    name: 'table',
+    component: () => import('../views/TableActions.vue'),
   },
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
 });
 

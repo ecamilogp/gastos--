@@ -1,7 +1,7 @@
-import { defineStore } from "pinia";
-import { Gastos } from "../interfaces/gastos";
+import { defineStore } from 'pinia';
+import type { Gastos } from '../interfaces/gastos';
 
-export const useGastosStore = defineStore("gastos", {
+export const useGastosStore = defineStore('gastos', {
   state: () => ({
     gastos: [] as Gastos[],
   }),
@@ -9,11 +9,11 @@ export const useGastosStore = defineStore("gastos", {
   actions: {
     saveGastos() {
       const save = JSON.stringify(this.gastos);
-      localStorage.setItem("gasto", save);
+      localStorage.setItem('gasto', save);
     },
 
     recoverGastos() {
-      const recover = localStorage.getItem("gasto");
+      const recover = localStorage.getItem('gasto');
       this.gastos = recover ? (JSON.parse(recover) as Gastos[]) : [];
     },
 
@@ -23,7 +23,7 @@ export const useGastosStore = defineStore("gastos", {
         this.gastos.push(data);
         this.saveGastos();
       } else {
-        console.log("el gasto recibido es undefained");
+        console.log('el gasto recibido es undefained');
       }
     },
 

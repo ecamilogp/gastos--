@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div
     class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6"
@@ -9,13 +7,13 @@
     </h1>
 
     <img
-      src="../assets/image/homero.png"
+      src="../assets/homero.png"
       alt="homero"
       class="w-48 h-48 rounded-full shadow-lg mb-6 hover:scale-105 transition-transform duration-300 ease-in-out"
     />
 
     <router-link
-      to="table-actions"
+      to="/table-actions"
       class="bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300"
     >
       Iniciar
